@@ -1,4 +1,4 @@
-from drawille import Canvas, line, Turtle
+from drawille import Canvas, line, Turtle, polygon
 from colorama import *
 from math import sin, radians
 
@@ -8,6 +8,7 @@ c = Canvas()
 c.clear()
 pnts = []
 t = Turtle()
+tpos = []
 
 
 class plot:
@@ -60,7 +61,7 @@ class plot:
 			for x in range(start,end,res):
 				pnt = x / 10, 10 + sin(radians(x)) * 10
 				pnts.append(pnt)
-				
+					
 	
 
 	
