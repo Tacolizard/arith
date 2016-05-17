@@ -1,4 +1,4 @@
-from drawille import Canvas, line
+from drawille import Canvas, line, Turtle
 from colorama import *
 from math import sin, radians
 
@@ -6,15 +6,43 @@ from math import sin, radians
 init()
 c = Canvas()
 c.clear()
+pnts = []
+t = Turtle()
+
 
 class plot:
+
+	def lnres(inres):
+		res = inres
+				
+	def printc(color):
+		for x,y in pnts:
+			c.set(x,y)
+		if color == 'green':
+			print(Fore.GREEN+c.frame())
+		if color == 'red':
+			print(Fore.RED+c.frame())
+		if color == 'yellow':
+			print(Fore.YELLOW+c.frame())
+		if color == 'blue':
+			print(Fore.BLUE+c.frame())
+		if color == 'cyan':
+			print(Fore.CYAN+c.frame())
+		
+		
+	def printt():
+		print(t.frame())
+		
+	def allclear():
+		t.clear()
+		c.clear()
 
 	class point:
 		def __init__(self, x1, y1):
 			c.set(x1, y1)
 			print(c.frame())
 
-	class Line():
+	class ln():
 		def __init__(self, ix1,iy1,ix2,iy2):
 			try:
 				m = (iy2-iy1)/(ix2-ix1)
@@ -23,10 +51,17 @@ class plot:
 			x = ix1
 			y = iy1
 			while x < ix2:
-				c.set(x / 2, (m*x)*2)	
-				x+=.1
+				pnt = x, (m*x)
+				pnts.append(pnt)	
+				x+=2
 				
-			print(c.frame())
+	class sine:
+		def __init__(self,start,end,res):
+			for x in range(start,end,res):
+				pnt = x / 10, 10 + sin(radians(x)) * 10
+				pnts.append(pnt)
+				
+	
 
 	
 			
